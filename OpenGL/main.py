@@ -103,8 +103,11 @@ def my_choices_1():
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
-                        pygame.quit()
-                        quit()
+                        return
+                    elif event.type == KEYDOWN:
+                        if event.key == K_ESCAPE:
+                            pygame.quit()
+                            return
                     if event.type == KEYDOWN:
                         if event.key in rot_cube_map:
                             rot_cube = rot_cube_map[event.key]
@@ -254,8 +257,11 @@ def my_choices_2():
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
-                        pygame.quit()
-                        quit()
+                        return
+                    elif event.type == KEYDOWN:
+                        if event.key == K_ESCAPE:
+                            pygame.quit()
+                            return
                     if event.type == KEYDOWN:
                         if event.key in rot_cube_map:
                             rot_cube = rot_cube_map[event.key]
@@ -405,8 +411,11 @@ def my_choices_3():
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
-                        pygame.quit()
-                        quit()
+                        return
+                    elif event.type == KEYDOWN:
+                        if event.key == K_ESCAPE:
+                            pygame.quit()
+                            return
                     if event.type == KEYDOWN:
                         if event.key in rot_cube_map:
                             rot_cube = rot_cube_map[event.key]
@@ -463,7 +472,7 @@ application = thorpy.Application((500, 500), "Launching alerts")
 
 button1 = thorpy.make_button("Fácil", func=my_choices_1)
 button2 = thorpy.make_button("Normal", func=my_choices_2)
-button3 = thorpy.make_button("Difícil")
+button3 = thorpy.make_button("Difícil", func=my_choices_3)
 button4 = thorpy.make_button("Sacame de Aquí!")
 button4.set_as_exiter()
 
