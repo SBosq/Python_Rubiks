@@ -4,7 +4,6 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import thorpy
-import random
 
 
 def my_choices_1():
@@ -125,7 +124,7 @@ def my_choices_1():
                 glLoadIdentity()
                 glTranslatef(0, 0, -40)
                 glRotatef(ang_y, 0, 1, 0)
-                glTranslatef(random.randrange(-5, 5), 0, -30)
+                glRotatef(ang_x, 1, 0, 0)
 
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
