@@ -4,6 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import thorpy
+import random
 
 
 def my_choices_1():
@@ -124,7 +125,7 @@ def my_choices_1():
                 glLoadIdentity()
                 glTranslatef(0, 0, -40)
                 glRotatef(ang_y, 0, 1, 0)
-                glRotatef(ang_x, 1, 0, 0)
+                glTranslatef(random.randrange(-5, 5), 0, -30)
 
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
@@ -471,15 +472,26 @@ def my_choices_3():
 application = thorpy.Application((500, 500), "Launching alerts")
 
 button1 = thorpy.make_button("Fácil", func=my_choices_1)
+button1.set_font_size(22)
+button1.scale_to_title()
 button2 = thorpy.make_button("Normal", func=my_choices_2)
+button2.set_font_size(22)
+button2.scale_to_title()
 button3 = thorpy.make_button("Difícil", func=my_choices_3)
+button3.set_font_size(22)
+button3.scale_to_title()
 button4 = thorpy.make_button("Sacame de Aquí!")
+button4.set_font_size(22)
+button4.scale_to_title()
 button4.set_as_exiter()
+
+title = thorpy.make_text("Juego Rubik's", font_size=32, font_color=(102, 0, 51))
+title.stick_to("screen", "top", "top")
 
 background = thorpy.Background(image="rubik.jpg", elements=[button1, button2, button3, button4])
 thorpy.store(background)
 
-menu = thorpy.Menu(background)
+menu = thorpy.Menu([background, title])
 menu.play()
 
 application.quit()
